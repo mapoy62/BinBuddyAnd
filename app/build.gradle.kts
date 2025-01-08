@@ -56,4 +56,13 @@ dependencies {
 
     //Usar material
     implementation (libs.material.v190)
+
+    //Retrofit para trabajar con la api, así como JSON y los logs en las solicitudes
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.logging.interceptor)
+
+    //Para las imágenes
+    implementation(libs.glide)
+
 }
