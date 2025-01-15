@@ -1,17 +1,17 @@
 package com.oym.binbuddy.data.repository
 
-import com.oym.binbuddy.data.remote.ChallengeAPI
-import com.oym.binbuddy.data.remote.model.ChallengeDTO
-import com.oym.binbuddy.data.remote.model.ChallengeDetailDTO
+import com.oym.binbuddy.data.remote.ChallengesApi
+import com.oym.binbuddy.data.remote.model.Challenge
 import retrofit2.Call
 import retrofit2.Retrofit
 
-class ChallengeRepository(
-    private val retrofit: Retrofit
+
+class ChallengesRepository(
+    retrofit: Retrofit
 ) {
-    private val challengeAPI: ChallengeAPI = retrofit.create(ChallengeAPI::class.java)
+    private val api = retrofit.create(ChallengesApi::class.java)
 
-    fun getChallenges() : Call<MutableList<ChallengeDTO>> = challengeAPI.getChallenges()
-
-    fun getChallengeDetails(id: Int?): Call<ChallengeDetailDTO> = challengeAPI.getChallengeDetail(id)
+    fun getChallenges(): Call<List<Challenge>> {
+        return api.getChallenges()
+    }
 }

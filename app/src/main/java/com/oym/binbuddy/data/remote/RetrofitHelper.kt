@@ -1,6 +1,7 @@
 package com.oym.binbuddy.data.remote
 
 import com.oym.binbuddy.utils.Constants
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -8,18 +9,49 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitHelper {
 
-    fun getRetrofit(): Retrofit{
-        val interceptor = HttpLoggingInterceptor().apply {
+    // Configurar cliente OkHttp con interceptores
+    private fun getClientWithApiKey(apiKey: String? = null): OkHttpClient {
+        val loggingInterceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
 
-        val client = OkHttpClient.Builder().apply {
-            addInterceptor(interceptor)
-        }.build()
+        val apiKeyInterceptor = Interceptor { chain ->
+            val originalRequest = chain.request()
+            val originalUrl = originalRequest.url
 
+            val newUrl = originalUrl.newBuilder()
+                .apply {
+                    apiKey?.let { addQueryParameter("api_key", it) } // Adjunta la API Key si aplica
+                }
+                .build()
+
+            val newRequest = originalRequest.newBuilder()
+                .url(newUrl)
+                .build()
+
+            chain.proceed(newRequest)
+        }
+
+        return OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .addInterceptor(apiKeyInterceptor)
+            .build()
+    }
+
+    // Instancia de Retrofit para Apiary
+    fun getApiaryRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
-            .client(client)
+            .client(getClientWithApiKey())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
+    // Instancia de Retrofit para SerpAPI
+    fun getSerpApiRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(Constants.SERPAPI_URL)
+            .client(getClientWithApiKey(Constants.SERPAPI_API_KEY))
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
