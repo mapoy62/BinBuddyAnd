@@ -55,4 +55,13 @@ class RetrofitHelper {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
+
+    //Instancia de Retrofit para Twiiter
+    fun getTwitterRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(Constants.TWITTER_URL)
+            .client(getClientWithApiKey(Constants.TWITTER_API_KEY))
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
 }

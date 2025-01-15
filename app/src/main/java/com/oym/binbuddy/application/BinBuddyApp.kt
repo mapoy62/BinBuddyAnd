@@ -9,12 +9,19 @@ import com.oym.binbuddy.data.repository.TipsRepository
 
 class BinBuddyApp: Application() {
 
+    //Backend BinBuddyAPI --- Apiary
     private val retrofit by lazy {
         RetrofitHelper().getApiaryRetrofit()
     }
 
+    //SerpAPI
     private val retrofitSerapi by lazy {
         RetrofitHelper().getSerpApiRetrofit()
+    }
+
+    //TwitterAPI
+    private val retrofitTwitter by lazy {
+        RetrofitHelper().getTwitterRetrofit()
     }
 
     val comingSoonRepository by lazy {
@@ -33,6 +40,8 @@ class BinBuddyApp: Application() {
         RecommendationsRepository(retrofitSerapi)
     }
 
-
+    val instagramProfilesRepository by lazy {
+        InstagramProfilesRepository()
+    }
 
 }
