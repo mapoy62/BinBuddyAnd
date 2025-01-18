@@ -56,7 +56,7 @@ dependencies {
     implementation (libs.androidx.navigation.ui.ktx)
 
     //Usar material
-    implementation (libs.material.v190)
+
 
     //Retrofit para trabajar con la api, así como JSON y los logs en las solicitudes
     implementation (libs.retrofit)
@@ -65,5 +65,9 @@ dependencies {
 
     //Para las imágenes
     implementation(libs.glide)
+
+    //Mapas para puntos de recolección
+    implementation(libs.play.services.maps)
+
 
 }

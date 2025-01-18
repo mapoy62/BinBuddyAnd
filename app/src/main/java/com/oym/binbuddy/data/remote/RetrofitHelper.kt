@@ -58,9 +58,25 @@ class RetrofitHelper {
 
     //Instancia de Retrofit para Twiiter
     fun getTwitterRetrofit(): Retrofit {
+        val loggingInterceptor = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+
+        val bearerInterceptor = Interceptor { chain ->
+            val request = chain.request().newBuilder()
+                .addHeader("Authorization", "Bearer ${Constants.TWITTER_API_KEY}")
+                .build()
+            chain.proceed(request)
+        }
+
+        val client = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .addInterceptor(bearerInterceptor)
+            .build()
+
         return Retrofit.Builder()
             .baseUrl(Constants.TWITTER_URL)
-            .client(getClientWithApiKey(Constants.TWITTER_API_KEY))
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

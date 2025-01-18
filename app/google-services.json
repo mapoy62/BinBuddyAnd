@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "21626484138",
+    "project_id": "binbuddy-39ae8",
+    "storage_bucket": "binbuddy-39ae8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21626484138:android:9685d6d6ac8e1ac30a27d3",
+        "android_client_info": {
+          "package_name": "com.oym.binbuddy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd_eF2Kk8gtuj0PJ33ankPhIkNLL-R8OM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

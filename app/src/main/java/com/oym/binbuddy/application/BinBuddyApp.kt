@@ -4,8 +4,12 @@ import android.app.Application
 import com.oym.binbuddy.data.remote.RetrofitHelper
 import com.oym.binbuddy.data.repository.ChallengesRepository
 import com.oym.binbuddy.data.repository.ComingSoonRepository
+import com.oym.binbuddy.data.repository.ExploreRepository
 import com.oym.binbuddy.data.repository.RecommendationsRepository
+import com.oym.binbuddy.data.repository.RecyclingRepository
+import com.oym.binbuddy.data.repository.RewardsRepository
 import com.oym.binbuddy.data.repository.TipsRepository
+import com.oym.binbuddy.data.repository.TwitterRepository
 
 class BinBuddyApp: Application() {
 
@@ -20,7 +24,7 @@ class BinBuddyApp: Application() {
     }
 
     //TwitterAPI
-    private val retrofitTwitter by lazy {
+    private val twitterRetrofit by lazy {
         RetrofitHelper().getTwitterRetrofit()
     }
 
@@ -40,8 +44,20 @@ class BinBuddyApp: Application() {
         RecommendationsRepository(retrofitSerapi)
     }
 
-    val instagramProfilesRepository by lazy {
-        InstagramProfilesRepository()
+    val exploreRepository by lazy {
+        ExploreRepository(retrofit)
     }
 
+    // Repositorio de Twitter
+    val twitterRepository by lazy {
+        TwitterRepository(twitterRetrofit, this)
+    }
+
+    val recyclingRepository by lazy {
+        RecyclingRepository(retrofit)
+    }
+
+    val rewardsRepository by lazy {
+        RewardsRepository(retrofit)
+    }
 }

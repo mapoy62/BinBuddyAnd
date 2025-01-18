@@ -12,4 +12,7 @@
     <string name="recommendations">Recommendations</string>
     <string name="coming_soon">Coming Soon...</string>
     <string name="add_recommendations_for_community">Add Recommendations for Community</string>
+    <string name="profile_image">Imagen del perfil de instagram</string>
+    <string name="open_instagram">Botón que te lleva directamente al perfil de la cuenta de instagram seleccionada</string>
+    <string name="reward_image_description">Image referent to reward\'s category</string>
 </resources>

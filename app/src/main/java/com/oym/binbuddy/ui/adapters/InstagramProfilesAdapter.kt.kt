@@ -5,8 +5,8 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.binbuddy.oym.data.remote.model.InstagramProfile
-import com.binbuddy.oym.databinding.ItemInstagramProfileBinding
+import com.oym.binbuddy.data.remote.model.InstagramProfile
+import com.oym.binbuddy.databinding.ItemInstagramProfileBinding
 import com.bumptech.glide.Glide
 
 class InstagramProfilesAdapter(
