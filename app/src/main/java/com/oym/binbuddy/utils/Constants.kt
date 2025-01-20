@@ -10,5 +10,5 @@ object Constants {
 
     //Url de API Twitter
     const val TWITTER_URL = "https://api.twitter.com/2/"
-    const val TWITTER_API_KEY = "AAAAAAAAAAAAAAAAAAAAALDCxgEAAAAAYNUbPmZlwtHYl0xrD%2BIrNRunXlI%3DMQcIEwWRk4hhINjdmSP8I7Lr20MyQw1GZclUZAIW1r6WXjJ2Ay"
+    const val TWITTER_API_KEY = "AAAAAAAAAAAAAAAAAAAAABIuyQEAAAAAfI37Fd2m5Pm8r7R0OrBiMaNaRtk%3DuHdP5oS6xSW6DkTK2et5N4faHDfvwhe0RXfmTpyXlF86wFIYpz"
 }
