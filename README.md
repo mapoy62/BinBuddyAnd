@@ -38,8 +38,3 @@ El proyecto utiliza los siguientes paquetes y frameworks:
 3. **Foundation**: Manejo de modelos, serialización de datos y operaciones básicas.
 
 4. **MapKit**: Para mostrar mapas interactivos con puntos de reciclaje.
-
-### Android (Planeado para BinBuddy Android):
-1. **Retrofit**: Manejo de llamadas a la API.
-2. **Glide**: Carga optimizada de imágenes.
-3. **Material Design**: Estilización moderna y responsiva.
